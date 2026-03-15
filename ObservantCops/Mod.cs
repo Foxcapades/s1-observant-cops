@@ -13,7 +13,7 @@ using ScheduleOne.PlayerScripts;
 using ScheduleOne.Vision;
 #endif
 
-[assembly: MelonInfo(typeof(ObservantCops.Mod), "Observant Cops", "1.0.0", "Foxcapades")]
+[assembly: MelonInfo(typeof(ObservantCops.Mod), "Observant Cops", "1.0.1", "Foxcapades")]
 [assembly: MelonGame("TVGS", "Schedule I")]
 
 #nullable enable
@@ -47,6 +47,11 @@ namespace ObservantCops {
         ?? ELegalStatus.Legal;
 
       var player = Player.Local!;
+
+      if (player.IsInVehicle) {
+        player.Visibility.RemoveState(STATE_LABEL);
+        return;
+      }
 
       if (player.CrimeData.CurrentPursuitLevel == PlayerCrimeData.EPursuitLevel.None) {
         if (legality != ELegalStatus.Legal) {
