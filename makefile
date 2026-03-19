@@ -1,5 +1,5 @@
 PROJECT_ID := ObservantCops
-VERSION := $(shell grep 'MelonInfo' $(PROJECT_ID)/Mod.cs | cut -d'"' -f4 | tr -d '\n')
+VERSION := $(shell grep 'MelonInfo' $(PROJECT_ID)/Mod.cs | cut -d'"' -f2 | tr -d '\n')
 
 CONFIGURATION := IL2Cpp
 LOWER_CONFIG := $(shell echo $(CONFIGURATION) | tr A-Z a-z)
@@ -18,7 +18,7 @@ endif
 
 BUILD_TARGET := bin/$(CONFIGURATION)/$(NET_PATH)/$(BUILD_DLL)
 OUTPUT_TARGET := $(TARGET_DIRECTORY)/$(OUTPUT_DLL)
-RELEASE_ZIP := $(TARGET_DIRECTORY)/oc-$(LOWER_CONFIG)-v$(VERSION).zip
+RELEASE_ZIP := $(TARGET_DIRECTORY)/$(shell echo $(PROJECT_ID) | tr -d a-z | tr A-Z a-z)-$(LOWER_CONFIG)-v$(VERSION).zip
 
 .PHONY: default
 default:

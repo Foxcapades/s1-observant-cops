@@ -1,24 +1,26 @@
 using MelonLoader;
 #if IL2CPP
 using Il2CppInterop.Runtime;
+using Il2CppScheduleOne.Core.Items.Framework;
 using Il2CppScheduleOne.DevUtilities;
-using Il2CppScheduleOne.ItemFramework;
 using Il2CppScheduleOne.PlayerScripts;
 using Il2CppScheduleOne.Vision;
 using Il2CppSystem;
 #elif MONO
+using ScheduleOne.Core.Items.Framework;
 using ScheduleOne.DevUtilities;
-using ScheduleOne.ItemFramework;
 using ScheduleOne.PlayerScripts;
 using ScheduleOne.Vision;
 #endif
 
-[assembly: MelonInfo(typeof(ObservantCops.Mod), "Observant Cops", "1.0.1", "Foxcapades")]
+[assembly: MelonInfo(typeof(ObservantCops.Mod), ObservantCops.Mod.MOD_NAME, "1.1.0", "Foxcapades")]
 [assembly: MelonGame("TVGS", "Schedule I")]
 
 #nullable enable
 namespace ObservantCops {
   public class Mod: MelonMod {
+    public const string MOD_NAME = "Observant Cops";
+
     private const string STATE_LABEL = "holding_suspicious_item";
 
     public override void OnSceneWasLoaded(int buildIndex, string sceneName) {
