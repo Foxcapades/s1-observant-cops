@@ -1,3 +1,0 @@
-= Schedule I - Observant Cops
-
-Makes cops notice when you have an illegal item equipped.
